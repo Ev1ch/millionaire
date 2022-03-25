@@ -1,0 +1,39 @@
+@use 'styles/variables' as *;
+
+.stage {
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+    &::before,
+    &::after {
+        content: '';
+        width: 40px;
+        height: 1px;
+        background-color: $black-40;
+    }
+
+    &__prize {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    &_active {
+        color: $orange-100;
+
+        &::before,
+        &::after {
+            background-color: $orange-100;
+        }
+
+        .stage {
+            &__hexagon {
+                background-color: $orange-100;
+            }
+        }
+    }
+
+    &_passed {
+        color: $black-40;
+    }
+}

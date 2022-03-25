@@ -8,6 +8,8 @@
     border: none;
     padding: 20px 24px;
     transition: background-color $basic-transition-time;
+    font-size: 20px;
+    font-weight: 600;
 
     &:hover {
         background-color: $orange-80;

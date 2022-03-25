@@ -1,18 +1,18 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Hexagon } from 'components/basic';
-import IAnswer from 'domain/answer';
+import { IIndexedAnswer } from 'domain/answer';
 import styles from './answer.module.scss';
 
 interface IAnswerProps {
-    onClick?: (answer: IAnswer) => void;
+    onClick?: (answer: IIndexedAnswer) => void;
     className?: string;
-    id: string;
-    answer: IAnswer;
+    label: string;
+    answer: IIndexedAnswer;
 }
 
-function Answer({ id, onClick, className, answer }: IAnswerProps) {
-    const clickHandler = () => {
+function Answer({ label, onClick, className, answer }: IAnswerProps) {
+    const clickHandler = async () => {
         if (!onClick) {
             return;
         }
@@ -21,13 +21,13 @@ function Answer({ id, onClick, className, answer }: IAnswerProps) {
     };
 
     return (
-        <div className={clsx(styles.answer, styles.answer_disabled, className)}>
+        <div className={clsx(styles.answer, className)}>
             <Hexagon
                 className={styles.answer__hexagon}
                 containerClassName={styles.answer__container}
                 onClick={clickHandler}
             >
-                <span className={styles.answer__id}>{id}</span>
+                <span className={styles.answer__label}>{label}</span>
                 <p className={styles.answer__text}>{answer.text}</p>
             </Hexagon>
         </div>

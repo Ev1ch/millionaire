@@ -24,7 +24,7 @@
 @mixin change-color($border-color, $background-color: false, $font-color: false) {
     @if ($font-color) {
         .answer {
-            &__id,
+            &__label,
             &__text {
                 color: $font-color;
             }
@@ -77,7 +77,7 @@
         transition: background-color $basic-transition-time;
     }
 
-    &__id {
+    &__label {
         color: $orange-100;
         font: 600 20px $basic-font-family;
     }
@@ -93,6 +93,7 @@
         @include change-border-color($orange-100);
     }
 
+    &_active,
     &:active {
         @include change-border-color($orange-100);
         @include change-background-color($orange-5);

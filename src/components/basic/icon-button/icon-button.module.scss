@@ -1,0 +1,9 @@
+.iconButton {
+    padding: 5px 4px;
+    border: none;
+
+    &__icon {
+        object-fit: cover;
+        object-position: center;
+    }
+}

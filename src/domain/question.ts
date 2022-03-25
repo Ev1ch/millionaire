@@ -1,9 +1,12 @@
-import IAnswer from 'domain/answer';
+import { IAnswer, IIndexedAnswer } from 'domain/answer';
 
-interface IQuestion {
+export interface IQuestion {
     text: string;
     prize: number;
     answers: IAnswer[];
 }
 
-export default IQuestion;
+export interface IIndexedQuestion extends IQuestion {
+    id: number;
+    answers: IIndexedAnswer[];
+}

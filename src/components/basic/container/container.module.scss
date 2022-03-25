@@ -1,6 +1,12 @@
-.container {
-    $horizontal-margin: 80px;
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
 
-    margin-left: $horizontal-margin;
-    margin-right: $horizontal-margin;
+.container {
+    margin-left: $basic-gutter;
+    margin-right: $basic-gutter;
+
+    @include for-phones {
+        margin-left: $small-gutter;
+        margin-right: $small-gutter;
+    }
 }

@@ -19,6 +19,7 @@
         "react/jsx-indent": ["error", 4],
         "react/jsx-indent-props": ["error", 4],
         "object-curly-newline": ["error", { "multiline": true }],
-        "react/require-default-props": "off"
+        "react/require-default-props": "off",
+        "implicit-arrow-linebreak": "off"
     }
 }

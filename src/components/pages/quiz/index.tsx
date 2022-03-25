@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import clsx from 'clsx';
 import { IIndexedQuestion } from 'domain/question';
 import { IIndexedAnswer } from 'domain/answer';
-import { Answer, Container, Stage } from 'components/basic';
+import { Answer, Container, IconButton, Stage } from 'components/basic';
 import ALPHABET from 'common/constants/alphabet';
+import burgerIcon from 'assets/icons/burger.svg';
+import timesIcon from 'assets/icons/times.svg';
 import styles from './quiz.module.scss';
 
 interface IQuizProps {
@@ -12,6 +15,12 @@ interface IQuizProps {
 }
 
 function Quiz({ question, questions, onAnswer }: IQuizProps) {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleHandler = () => {
+        setIsMenuOpen((prevState) => !prevState);
+    };
+
     const getLabel = (id: number) => ALPHABET[(id % ALPHABET.length) - 1].toLocaleUpperCase();
 
     const getStageType = (currentQuestion: IIndexedQuestion) => {
@@ -46,8 +55,13 @@ function Quiz({ question, questions, onAnswer }: IQuizProps) {
                     </div>
                 </Container>
             </section>
-            <section className={styles.stages}>
-                <div className={styles.stages__container}>
+            <section className={clsx(styles.stages, isMenuOpen && styles.stages_burger)}>
+                <Container className={styles.stages__container}>
+                    <IconButton
+                        className={styles.stages__toggler}
+                        icon={isMenuOpen ? timesIcon : burgerIcon}
+                        onClick={toggleHandler}
+                    />
                     <div className={styles.stages__content}>
                         {[...questions].reverse().map((currentQuestion) => (
                             <Stage
@@ -58,7 +72,7 @@ function Quiz({ question, questions, onAnswer }: IQuizProps) {
                             />
                         ))}
                     </div>
-                </div>
+                </Container>
             </section>
         </main>
     );

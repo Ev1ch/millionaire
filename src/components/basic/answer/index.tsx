@@ -4,15 +4,28 @@ import { Hexagon } from 'components/basic';
 import { IIndexedAnswer } from 'domain/answer';
 import styles from './answer.module.scss';
 
+const Styles = {
+    disabled: styles.answer_disabled,
+    active: styles.answer_active,
+    wrong: styles.answer_wrong,
+    correct: styles.answer_correct,
+};
+
 interface IAnswerProps {
     onClick?: (answer: IIndexedAnswer) => void;
     className?: string;
     label: string;
     answer: IIndexedAnswer;
+    style?: keyof typeof Styles;
+    disabled?: boolean;
 }
 
-function Answer({ label, onClick, className, answer }: IAnswerProps) {
+function Answer({ label, onClick, className, answer, style, disabled }: IAnswerProps) {
     const clickHandler = async () => {
+        if (disabled) {
+            return;
+        }
+
         if (!onClick) {
             return;
         }
@@ -21,7 +34,7 @@ function Answer({ label, onClick, className, answer }: IAnswerProps) {
     };
 
     return (
-        <div className={clsx(styles.answer, className)}>
+        <div className={clsx(styles.answer, style && Styles[style], className)}>
             <Hexagon
                 className={styles.answer__hexagon}
                 containerClassName={styles.answer__container}

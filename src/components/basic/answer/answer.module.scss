@@ -23,7 +23,7 @@
 }
 
 @mixin change-color($border-color, $background-color: false, $font-color: false) {
-    @if ($font-color) {
+    @if $font-color {
         .answer {
             &__label,
             &__text {
@@ -34,7 +34,7 @@
 
     @include change-border-color($border-color);
 
-    @if ($background-color) {
+    @if $background-color {
         @include change-background-color($background-color);
     }
 
@@ -45,7 +45,7 @@
     &:active {
         @include change-border-color($border-color);
 
-        @if ($background-color) {
+        @if $background-color {
             @include change-background-color($background-color);
         }
     }

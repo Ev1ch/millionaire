@@ -4,3 +4,16 @@
     box-sizing: border-box;
     font-family: $basic-font-family;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+
+    &-track {
+        background-color: $black-5;
+    }
+
+    &-thumb {
+        background-color: $black-40;
+        border-radius: $basic-border-radius;
+    }
+}

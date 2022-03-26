@@ -5,7 +5,7 @@ import { IIndexedQuestion } from 'domain/question';
 import formatNumber from 'helpers/format-number';
 import styles from './stage.module.scss';
 
-const Types = {
+const Styles = {
     passed: styles.stage_passed,
     active: styles.stage_active,
 };
@@ -13,12 +13,12 @@ const Types = {
 interface IStageProps {
     question: IIndexedQuestion;
     className?: string;
-    type?: keyof typeof Types;
+    style?: keyof typeof Styles;
 }
 
-function Stage({ question, className, type }: IStageProps) {
+function Stage({ question, className, style }: IStageProps) {
     return (
-        <div className={clsx(styles.stage, type && Types[type], className)}>
+        <div className={clsx(styles.stage, style && Styles[style], className)}>
             <Hexagon className={styles.stage__hexagon}>
                 <p className={styles.stage__prize}>
                     &#36;

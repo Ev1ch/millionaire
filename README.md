@@ -16,6 +16,28 @@ To install the application follow the steps bellow:
 -   Run `npm start`
 -   Go to [http://localhost:3000](http://localhost:3000) in browser
 
+### Configuration
+
+Example quiz configuration is located in `./src/configs/quiz/data.json`.
+
+#### Answer model
+
+```json
+{
+    "text": // Text of answer
+    "isCorrect": true // Flag, which tells us if the answer is correct (can be skipped, if an answer is wrong)
+}
+```
+
+#### Question model
+
+```json
+{
+    "text": "Question 1", // Text of the question
+    "prize": 500, // Prize, which player can get after passing this stage
+    "answers": Answers[] // Array of available answers
+```
+
 ### Used stack
 
 -   Languages: `TypeScript`

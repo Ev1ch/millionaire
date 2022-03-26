@@ -6,6 +6,7 @@ import { Answer, Container, IconButton, Stage } from 'components/basic';
 import ALPHABET from 'common/constants/alphabet';
 import burgerIcon from 'assets/icons/burger.svg';
 import timesIcon from 'assets/icons/times.svg';
+import delay from 'helpers/delay';
 import styles from './quiz.module.scss';
 
 interface IQuizProps {
@@ -16,6 +17,7 @@ interface IQuizProps {
 
 function Quiz({ question, questions, onAnswer }: IQuizProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [chosenAnswer, setChosenAnswer] = useState<IIndexedAnswer | null>(null);
 
     const toggleHandler = () => {
         setIsMenuOpen((prevState) => !prevState);
@@ -23,7 +25,7 @@ function Quiz({ question, questions, onAnswer }: IQuizProps) {
 
     const getLabel = (id: number) => ALPHABET[(id % ALPHABET.length) - 1].toLocaleUpperCase();
 
-    const getStageType = (currentQuestion: IIndexedQuestion) => {
+    const getStageStyle = (currentQuestion: IIndexedQuestion) => {
         if (currentQuestion.id < question.id) {
             return 'passed';
         }
@@ -33,6 +35,22 @@ function Quiz({ question, questions, onAnswer }: IQuizProps) {
         }
 
         return undefined;
+    };
+
+    const getAnswerStyle = (currentAnswer: IIndexedAnswer) => {
+        if (!chosenAnswer) {
+            return undefined;
+        }
+
+        if (chosenAnswer.id !== currentAnswer.id) {
+            return 'disabled';
+        }
+
+        if (!chosenAnswer.isCorrect) {
+            return 'wrong';
+        }
+
+        return 'correct';
     };
 
     return (
@@ -45,11 +63,16 @@ function Quiz({ question, questions, onAnswer }: IQuizProps) {
                             <Answer
                                 key={currentAnswer.id}
                                 label={getLabel(currentAnswer.id)}
+                                style={getAnswerStyle(currentAnswer)}
                                 answer={currentAnswer}
                                 className={styles.game__answer}
-                                onClick={() => {
+                                onClick={async () => {
+                                    setChosenAnswer(currentAnswer);
+                                    await delay(1000);
                                     onAnswer(currentAnswer);
+                                    setChosenAnswer(null);
                                 }}
+                                disabled={Boolean(chosenAnswer)}
                             />
                         ))}
                     </div>
@@ -68,7 +91,7 @@ function Quiz({ question, questions, onAnswer }: IQuizProps) {
                                 key={currentQuestion.id}
                                 question={currentQuestion}
                                 className={styles.stages__stage}
-                                type={getStageType(currentQuestion)}
+                                style={getStageStyle(currentQuestion)}
                             />
                         ))}
                     </div>

@@ -24,6 +24,7 @@
         display: grid;
         margin-top: 132px;
         margin-bottom: 114px;
+        overflow-y: auto;
     }
 
     &__question {
@@ -35,7 +36,7 @@
     &__answers {
         margin-top: auto;
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         flex-wrap: wrap;
         flex-grow: 1;
     }
@@ -85,7 +86,7 @@
     &__container {
         margin: $small-gutter 0 $small-gutter * 2 0;
         display: flex;
-        overflow: auto;
+        overflow-y: auto;
     }
 
     &__content {

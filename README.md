@@ -37,12 +37,12 @@ Sources structure:
 -   `assets` - media files, photos, icons, etc.
 -   `common` - constants and enums, which are used to replace "magic" values
 -   `components` - basic components and pages, which are built from them. Just a vizualizing layer
+    -   `router` - core application router
 -   `configs` - configuration files for application
 -   `containers` - high-level application logic. Containers passes props to pages
 -   `context` - core application context with important data
 -   `domain` - core entities, which are used in application, for example question, answer, etc.
 -   `helpers` - small function, which are used to simplify other operations
--   `router` - core application router
 -   `services` - business logic layer
 -   `styles` - root styles, variables and other
 

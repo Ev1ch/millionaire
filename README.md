@@ -24,7 +24,7 @@ Example quiz configuration is located in `./src/config/data.json`.
 
 ```json
 {
-    "text": // Text of answer
+    "text": "Answer 1", // Text of answer
     "isCorrect": true // Flag, which tells us if the answer is correct (can be skipped, if an answer is wrong)
 }
 ```

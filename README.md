@@ -50,6 +50,7 @@ Example quiz configuration is located in `./src/configs/quiz/data.json`.
     -   `ESlint` _(Arbnb options)_
     -   `Prettier` _(Custom options)_
     -   `Stylelint` _(Standart config)_
+    -   `Joi`
 -   Other:
     -   `CLSX`
 

@@ -3,6 +3,10 @@ export interface IAnswer {
     isCorrect?: boolean;
 }
 
+export interface ICorrectAnswer extends IAnswer {
+    isCorrent: true;
+}
+
 export interface IIndexedAnswer extends IAnswer {
     id: number;
 }

@@ -1,5 +1,5 @@
 import React, { createContext, ReactNode } from 'react';
-import quizConfig from 'configs/quiz/data.json';
+import quizConfig from 'config/data.json';
 import { IIndexedQuiz } from 'domain/quiz';
 import { QuizService } from 'services';
 

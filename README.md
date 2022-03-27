@@ -36,6 +36,7 @@ Example quiz configuration is located in `./src/configs/quiz/data.json`.
     "text": "Question 1", // Text of the question
     "prize": 500, // Prize, which player can get after passing this stage
     "answers": Answers[] // Array of available answers
+}
 ```
 
 ### Used stack

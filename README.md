@@ -49,6 +49,7 @@ Example quiz configuration is located in `./src/configs/quiz/data.json`.
     -   `Commitlint` _(Angular convention)_
     -   `ESlint` _(Arbnb options)_
     -   `Prettier` _(Custom options)_
+    -   `Stylelint` _(Standart config)_
 -   Other:
     -   `CLSX`
 
@@ -116,7 +117,15 @@ The script runs `ESlint` for static code analysis without fixing errors.
 
 #### `npm run eslint:fix`
 
-TThe script runs `ESlint` for static code analysis and tries to fix errors.
+The script runs `ESlint` for static code analysis and tries to fix errors.
+
+#### `npm run stylelint`
+
+The script runs `Stylelint` for static styles analysis without fixing errors.
+
+#### `npm run stylelint:fix`
+
+TThe script runs `Stylelint` for static styles analysis and tries to fix errors.
 
 #### `npm run predeploy`
 

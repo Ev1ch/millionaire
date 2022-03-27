@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { Hexagon } from 'components/basic';
 import { IIndexedQuestion } from 'domain/question';
-import formatNumber from 'helpers/format-number';
+import { formatNumber } from 'helpers';
 import styles from './stage.module.scss';
 
 const Styles = {

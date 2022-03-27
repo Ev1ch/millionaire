@@ -6,7 +6,7 @@ import { Answer, Container, IconButton, Stage } from 'components/basic';
 import ALPHABET from 'common/constants/alphabet';
 import burgerIcon from 'assets/icons/burger.svg';
 import timesIcon from 'assets/icons/times.svg';
-import delay from 'helpers/delay';
+import { delay } from 'helpers';
 import styles from './quiz.module.scss';
 
 interface IQuizProps {

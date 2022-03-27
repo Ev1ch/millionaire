@@ -1,5 +1,5 @@
 import { IIndexedQuiz, IQuiz } from 'domain/quiz';
-import indexArray from 'helpers/index-array';
+import { indexArray } from 'helpers';
 
 export const indexQuiz = ({ questions }: IQuiz): IIndexedQuiz => ({
     questions: questions.map((question, index) => ({

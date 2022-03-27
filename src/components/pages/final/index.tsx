@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Container } from 'components/basic';
-import formatNumber from 'helpers/format-number';
+import { formatNumber } from 'helpers';
 import finalImage from 'assets/images/thumb-up.svg';
 import styles from './final.module.scss';
 

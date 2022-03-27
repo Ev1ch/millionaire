@@ -125,7 +125,11 @@ The script runs `Stylelint` for static styles analysis without fixing errors.
 
 #### `npm run stylelint:fix`
 
-TThe script runs `Stylelint` for static styles analysis and tries to fix errors.
+The script runs `Stylelint` for static styles analysis and tries to fix errors.
+
+#### `npm run validate-config`
+
+The custom script, which validates if the provided quiz config is correct.
 
 #### `npm run predeploy`
 

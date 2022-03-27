@@ -1,3 +1,4 @@
+@use 'styles/mixins' as *;
 @use 'styles/variables' as *;
 
 .stage {
@@ -16,6 +17,7 @@
     &__prize {
         margin-top: 8px;
         margin-bottom: 8px;
+        font-size: 20px;
     }
 
     &_active {
@@ -35,5 +37,11 @@
 
     &_passed {
         color: $black-40;
+    }
+
+    @include for-phones {
+        &__prize {
+            font-size: 14px;
+        }
     }
 }

@@ -18,7 +18,7 @@ To install the application follow the steps bellow:
 
 ### Configuration
 
-Example quiz configuration is located in `./src/configs/quiz/data.json`.
+Example quiz configuration is located in `./src/config/data.json`.
 
 #### Answer model
 

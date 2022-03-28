@@ -1,0 +1,12 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.container {
+    margin-left: $basic-gutter;
+    margin-right: $basic-gutter;
+
+    @include for-phones {
+        margin-left: $small-gutter;
+        margin-right: $small-gutter;
+    }
+}

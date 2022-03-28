@@ -1,0 +1,41 @@
+@use 'styles/mixins' as *;
+@use 'styles/variables' as *;
+
+.error {
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+
+    &__container {
+        height: 100%;
+        display: flex;
+    }
+
+    &__content {
+        margin: auto;
+    }
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: $basic-title-size;
+    }
+
+    &__message {
+        margin-top: 0;
+        margin-bottom: 8px;
+        opacity: 0.5;
+        font-size: 32px;
+    }
+
+    @include for-phones {
+        &__title {
+            font-size: 32px;
+        }
+
+        &__message {
+            font-size: 18px;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+@use 'sass:math';
+@use 'styles/variables' as *;
+
+// stylelint-disable-next-line length-zero-no-unit
+@mixin clip-hexagon($triangle-width, $offset: 0px) {
+    $correction-offset: math.div($offset, 2);
+    $hexagon-shape: polygon(
+        $triangle-width - $correction-offset 0,
+        calc(100% - $triangle-width + $correction-offset) 0,
+        calc(100% - math.div($offset, 4)) 50%,
+        calc(100% - $triangle-width + $correction-offset) 100%,
+        $triangle-width - $correction-offset 100%,
+        math.div($offset, 4) 50%
+    );
+
+    clip-path: $hexagon-shape;
+}
+
+.hexagon {
+    $border-color: $black-40;
+    $border-width: 1px;
+    $triangle-width: 24px;
+
+    width: 100%;
+    background-color: $border-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    @include clip-hexagon($triangle-width);
+
+    &__container {
+        margin: $border-width;
+        padding-left: $triangle-width - $border-width;
+        padding-right: $triangle-width - $border-width;
+        background-color: $white-100;
+        width: calc(100% - $border-width * 2);
+        height: 100%;
+
+        @include clip-hexagon($triangle-width, $border-width);
+    }
+}

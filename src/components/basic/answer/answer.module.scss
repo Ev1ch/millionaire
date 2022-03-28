@@ -1,0 +1,131 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+@mixin change-border-color($border-color) {
+    &::before,
+    &::after {
+        background-color: $border-color;
+    }
+
+    .answer {
+        &__hexagon {
+            background-color: $border-color;
+        }
+    }
+}
+
+@mixin change-background-color($background-color) {
+    .answer {
+        &__container {
+            background-color: $background-color;
+        }
+    }
+}
+
+@mixin change-color($border-color, $background-color: false, $font-color: false) {
+    @if $font-color {
+        .answer {
+            &__label,
+            &__text {
+                color: $font-color;
+            }
+        }
+    }
+
+    @include change-border-color($border-color);
+
+    @if $background-color {
+        @include change-background-color($background-color);
+    }
+
+    &:hover {
+        @include change-border-color($border-color);
+    }
+
+    &:active {
+        @include change-border-color($border-color);
+
+        @if $background-color {
+            @include change-background-color($background-color);
+        }
+    }
+}
+
+.answer {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color $basic-transition-time;
+
+    &::before,
+    &::after {
+        content: '';
+        width: 17px;
+        height: 1px;
+        background-color: $black-40;
+        transition: background-color $basic-transition-time;
+    }
+
+    &__hexagon {
+        transition: background-color $basic-transition-time;
+    }
+
+    &__container {
+        padding-top: 24.5px;
+        padding-bottom: 24.5px;
+        display: flex;
+        align-items: center;
+        transition: background-color $basic-transition-time;
+    }
+
+    &__label {
+        color: $orange-100;
+        font-weight: 600;
+        font-size: $basic-font-size;
+    }
+
+    &__text {
+        margin-left: 8px;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 20px;
+    }
+
+    &:hover {
+        @include change-border-color($orange-100);
+    }
+
+    &_active,
+    &:active {
+        @include change-border-color($orange-100);
+        @include change-background-color($orange-5);
+    }
+
+    &_correct {
+        @include change-color($green-100, $green-5);
+    }
+
+    &_wrong {
+        @include change-color($red-100, $red-5);
+    }
+
+    &_disabled {
+        cursor: initial;
+
+        @include change-color($black-40, $white-100, $black-40);
+    }
+
+    @include for-smaller-than-tablets {
+        &__container {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+
+    @include for-phones {
+        &__label,
+        &__text {
+            font-size: 14px;
+        }
+    }
+}

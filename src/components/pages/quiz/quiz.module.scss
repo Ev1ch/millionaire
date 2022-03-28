@@ -1,0 +1,160 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.quiz {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 74% 26%;
+    grid-template-rows: 100%;
+
+    @include for-smaller-than-tablets {
+        height: auto;
+        min-height: 100vh;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+    }
+}
+
+.game {
+    display: grid;
+    background-color: $black-5;
+
+    &__container {
+        display: grid;
+        margin-top: 132px;
+        margin-bottom: 114px;
+        overflow-y: auto;
+    }
+
+    &__question {
+        margin-top: 0;
+        margin-bottom: 100px;
+        width: 75%;
+    }
+
+    &__answers {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-grow: 1;
+    }
+
+    &__answer {
+        width: 50%;
+        margin-bottom: 32px;
+    }
+
+    @include for-smaller-than-tablets {
+        &__container {
+            margin-bottom: 24px;
+        }
+
+        &__question {
+            text-align: center;
+            width: auto;
+            margin-bottom: 100px;
+        }
+
+        &__answers {
+            margin-top: 0;
+            margin-bottom: auto;
+        }
+
+        &__answer {
+            margin-bottom: 8px;
+        }
+    }
+
+    @include for-phones {
+        &__answers {
+            width: 100%;
+            flex-direction: column;
+        }
+
+        &__answer {
+            width: 100%;
+        }
+    }
+}
+
+.stages {
+    display: grid;
+    width: 100%;
+
+    &__container {
+        margin: $small-gutter 0 $small-gutter * 2 0;
+        display: flex;
+        overflow-y: auto;
+    }
+
+    &__content {
+        width: 100%;
+        margin: auto;
+    }
+
+    &__toggler {
+        display: none;
+        width: 24px;
+        height: 24px;
+    }
+
+    &__stage {
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+    }
+
+    &_burger {
+        height: 100vh;
+
+        .stages {
+            &__toggler {
+                margin-bottom: 24px;
+            }
+
+            &__container {
+                margin-bottom: 32px;
+            }
+
+            &__content {
+                display: block;
+            }
+        }
+    }
+
+    @include for-smaller-than-tablets {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: $black-5;
+
+        &__container {
+            margin-left: $basic-gutter;
+            margin-right: $basic-gutter;
+            margin-bottom: 0;
+            flex-direction: column;
+        }
+
+        &__toggler {
+            display: block;
+            margin-left: auto;
+        }
+
+        &__content {
+            margin-top: auto;
+            margin-bottom: auto;
+            max-height: 90%;
+            overflow-y: auto;
+            display: none;
+        }
+    }
+
+    @include for-phones {
+        &__container {
+            margin-left: $small-gutter;
+            margin-right: $small-gutter;
+        }
+    }
+}

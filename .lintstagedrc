@@ -1,0 +1,5 @@
+{
+    "*.*": "npm run prettier",
+    "*.{ts,tsx}": "npm run eslint",
+    "*.scss": "npm run stylelint"
+}

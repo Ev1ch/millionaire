@@ -7,10 +7,10 @@
     $hexagon-shape: polygon(
         $triangle-width - $correction-offset 0,
         calc(100% - $triangle-width + $correction-offset) 0,
-        calc(100% - $offset / 4) 50%,
+        calc(100% - math.div($offset, 4)) 50%,
         calc(100% - $triangle-width + $correction-offset) 100%,
         $triangle-width - $correction-offset 100%,
-        $offset / 4 50%
+        math.div($offset, 4) 50%
     );
 
     clip-path: $hexagon-shape;
